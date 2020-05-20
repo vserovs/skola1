@@ -1,0 +1,29 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport">
+    <link rel="stylesheet" href="stils.css">
+    <title>Jauns</title>
+</head>
+<body>
+    <h1><b>Gaidot dzimšanas dienu..</b></h1>
+    <hr>
+    <form action="">
+        Ievadi pilnu datumu, kad Tev būs tuvākā dzimšanas diena <br>
+        <label for="gads">Gads</label><input type="text" id="gads" name="gads"><br>
+        <label for="mēnesis">Mēnesis</label><input type="text" id="mēnesis" name="mēnesis"><br>
+        <label for="datums">Diena</label><input type="text" id="datums" name="datums"><br>
+        <input type="button" id="poga" name="poga" value = "Aprēķināt dienu skaitu līdz dzimšanas dienai" onclick = 'dienas();'><br>
+    </form>
+    <p>Līdz svētkiem atlikušas dienas<input type="text" id="dienas" name="dienas">: ))</p>
+    <script>
+        function dienas(){
+            const date1 = new Date();
+            const date2 = new Date(`${document.getElementById("gads").value}/${document.getElementById("mēnesis").value}/${document.getElementById("datums").value}`);
+            const diffTime = Math.abs(date1 - date2);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+            document.getElementById("dienas").value = diffDays;
+        }
+    </script>
+</body>
+</html>
